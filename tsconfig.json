@@ -11,21 +11,24 @@
     "moduleResolution": "node",
     "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noImplicitThis": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "importHelpers": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+		"noUnusedLocals": false,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true
   },
   "exclude": [
-    "node_modules",
+		"node_modules",
+		"config",
     "build",
     "scripts",
     "acceptance-tests",
     "webpack",
     "jest",
-    "src/setupTests.ts"
+		"proxy.config.tsx"
   ]
 }
