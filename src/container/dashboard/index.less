@@ -1,3 +1,40 @@
 .dashboard {
 	width: 100%;
+	.header-logo {
+		color: white;
+		background-color: #222;
+		height: 150px;
+		padding: 20px;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		.logo {
+			animation: App-logo-spin infinite 20s linear;
+			width: 100%;
+			height: 80px;
+		}
+		.title {
+			font-size: 20px;
+		}
+	}
+
+	.now, .count-down {
+		margin: 10px 10px 0 10px;
+	}
+
+	.content {
+		margin-top: 30%;
+		display: flex;
+		justify-content: center;
+
+		.btn {
+			width: 90%;
+		}
+	}
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
