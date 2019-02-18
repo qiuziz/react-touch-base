@@ -3,7 +3,7 @@
  * @Github: <https://github.com/qiuziz>
  * @Date: 2019-02-18 13:38:20
  * @Last Modified by: qiuz
- * @Last Modified time: 2019-02-18 17:58:11
+ * @Last Modified time: 2019-02-18 19:52:04
  */
 
 import { ListView } from 'antd-mobile';
@@ -73,12 +73,11 @@ export default function List(props: any) {
 	}));
 
 	const [pageIndex, setPageIndex] = useState(0);
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 	const [hasMore, setHasMore] = useState(true);
 
 	const [height, setHeight] = useState(document.documentElement.clientHeight * 3 / 4);
 	useEffect(() => {
-		console.log(lv);
 		const hei = document.documentElement.clientHeight - (ReactDOM.findDOMNode(lv.current).parentNode as any).offsetTop;
     // simulate initial Ajax
     setTimeout(() => {
@@ -98,6 +97,10 @@ export default function List(props: any) {
 			}}
 		/>
 	);
+
+	const goDetail = () => {
+		props.History.push({pathname: '/list/detail'});
+	}
 	let index = data.length - 1;
 	const row = (rowData: any, sectionID: any, rowID: any) => {
 		if (index < 0) {
@@ -105,7 +108,7 @@ export default function List(props: any) {
 		}
 		const obj = data[index--];
 		return (
-			<div key={rowID} style={{ padding: '0 15px' }}>
+			<div key={rowID} style={{ padding: '0 15px' }} onClick={goDetail}>
 				<div
 					style={{
 						lineHeight: '50px',

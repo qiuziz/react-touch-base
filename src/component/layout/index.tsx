@@ -10,7 +10,8 @@ import { withRouter } from 'react-router-dom';
 
 
 interface Props {
-  History: any;
+	History: any;
+	displayFlag: any;
 }
 
 @(withRouter as any)
@@ -34,7 +35,7 @@ export default class Layout extends React.Component<Props, {}> {
 
   render () {
     return (
-		<div className="layout">
+		<div className="layout" style={{transform: this.props.displayFlag ? '' : 'translateX(-100%)'}}>
 					<header></header>
 					<main>
 						{this.props.children}

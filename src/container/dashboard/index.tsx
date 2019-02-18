@@ -3,7 +3,7 @@
  * @Github: <https://github.com/qiuziz>
  * @Date: 2019-02-13 09:23:11
  * @Last Modified by: qiuz
- * @Last Modified time: 2019-02-18 13:44:20
+ * @Last Modified time: 2019-02-18 19:46:28
  */
 
 import React, { useState, useEffect, useMemo, useLayoutEffect } from "react";
@@ -14,10 +14,6 @@ import logo from 'src/assets/images/logo.svg';
 import { Button } from 'antd-mobile';
 
 const NOW  = new Date();
-
-const goList = () => {
-
-}
 
 export default function Dashboard(props) {
 	const [time, setTime] = useState(NOW);
