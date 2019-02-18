@@ -3,7 +3,7 @@
  * @Github: <https://github.com/qiuziz>
  * @Date: 2019-02-13 09:23:11
  * @Last Modified by: qiuz
- * @Last Modified time: 2019-02-13 09:46:59
+ * @Last Modified time: 2019-02-18 13:44:20
  */
 
 import React, { useState, useEffect, useMemo, useLayoutEffect } from "react";
@@ -15,7 +15,11 @@ import { Button } from 'antd-mobile';
 
 const NOW  = new Date();
 
-export default function Dashboard() {
+const goList = () => {
+
+}
+
+export default function Dashboard(props) {
 	const [time, setTime] = useState(NOW);
 	const [countTime, setCountTime] = useState({minutes: 30, seconds: 0});
 	useLayoutEffect(() => {
@@ -23,7 +27,10 @@ export default function Dashboard() {
 			setTime(new Date());
 		}, 1000);
 		return () => clearInterval(timer);
-	}, [])
+	}, []);
+	const goList = () => {
+		props.History.push({pathname: '/list'});
+	}
 	return (
 		<div className="dashboard">
 			<div className="header-logo">
@@ -39,7 +46,7 @@ export default function Dashboard() {
 			</div>
 
 			<div className="content">
-				<Button className="btn">List</Button>
+				<Button className="btn" onClick={goList}>List</Button>
 			</div>
 		</div>
 	)
