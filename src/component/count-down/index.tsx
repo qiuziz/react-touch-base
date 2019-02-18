@@ -8,7 +8,7 @@
 
 import './index.less';
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import classNames from 'classnames';
 
 interface propTypes {
@@ -50,12 +50,12 @@ const defaultProps = {
 }
 
 
-export default function CountDown(props: propTypes = defaultProps) {
+const CountDown = React.memo((props: propTypes = defaultProps) => {
 	const data = { ...defaultProps, ...props };
 	let { day, hours, minutes, seconds, isCard, className, format, isShowDay } = data;
 	let sumSeconds = (day * 60 * 60 * 24) + (hours * 60 * 60) + (minutes * 60) + seconds;
 	const [state, setState] = useState({day, hours, minutes, seconds});
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const timer = setInterval(() => {
 			if (sumSeconds >= 0) {
 				const
@@ -126,7 +126,9 @@ export default function CountDown(props: propTypes = defaultProps) {
       </div>
     </div>
   )
-}
+});
+
+export default CountDown;
 
 // export default class CountDown extends React.Component<propTypes, any> {
 //   static defaultProps = {
