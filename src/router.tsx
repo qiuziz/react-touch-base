@@ -13,6 +13,7 @@ import { HashHistory } from './common/history';
 import Dashboard from './container/dashboard';
 import List from './container/list';
 import Detail from './container/detail';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const routes = [
 	{
@@ -47,24 +48,22 @@ const App = () => {
 				routes.map(({ path, Layout, Component, exact, title, local, color, padding }: any, index) => {
 					let currentPath = window.location.hash.split('#')[1].split('?')[0];
 					displayFlag[path] = currentPath === path;
-					console.log(displayFlag);
 					return (
-					<Route key={index} path={path} exact={exact} render={
-						(props: any) => {
-							document.title = title;
-							const { history, location } = props;
-							const History = HashHistory(history, location);
-							return (
-								<Layout {...props} displayFlag={displayFlag[path]}>
-									<Component {...props} History={History}/>
-								</Layout>
-							)
-					}}
-					/>
+								<Route key={index} path={path} exact={exact} render={
+									(props: any) => {
+										document.title = title;
+										const { history, location } = props;
+										const History = HashHistory(history, location);
+										return (
+											<Layout {...props} displayFlag={displayFlag[path]}>
+												<Component {...props} History={History}/>
+											</Layout>
+										)
+								}}
+								/>
 					)
 				})
 			}
-			<Redirect to="/dashboard" />
 		</div>
 	)
 }

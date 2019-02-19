@@ -1083,6 +1083,14 @@ address@1.0.3, address@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/address/-/address-1.0.3.tgz#b5f50631f8d6cec8bd20c963963afb55e06cbce9"
 
+after-transition@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/after-transition/-/after-transition-0.0.4.tgz#1653560507893d820e50323ddbbaaefd2ae17555"
+  integrity sha1-FlNWBQeJPYIOUDI927qu/SrhdVU=
+  dependencies:
+    css-emitter-component "~0.1.1"
+    has-transitions "~0.3.0"
+
 ajv-errors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.0.tgz#ecf021fa108fd17dfb5e6b383f2dd233e31ffc59"
@@ -2646,7 +2654,7 @@ component-classes@^1.2.5:
   dependencies:
     component-indexof "0.0.3"
 
-component-emitter@^1.2.1:
+component-emitter@^1.2.0, component-emitter@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.2.1.tgz#137918d6d78283f7df7a6b7c5a63e140e69425e6"
 
@@ -2654,6 +2662,11 @@ component-indexof@0.0.3:
   version "0.0.3"
   resolved "https://registry.npmjs.org/component-indexof/-/component-indexof-0.0.3.tgz#11d091312239eb8f32c8f25ae9cb002ffe8d3c24"
   integrity sha1-EdCRMSI5648yyPJa6csAL/6NPCQ=
+
+component-query@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/component-query/-/component-query-0.0.3.tgz#07f49dab7071fa9606725df53e607f468acdaacf"
+  integrity sha1-B/Sdq3Bx+pYGcl31PmB/RorNqs8=
 
 compressible@~2.0.14:
   version "2.0.15"
@@ -2884,6 +2897,18 @@ css-declaration-sorter@^4.0.1:
   dependencies:
     postcss "^7.0.1"
     timsort "^0.3.0"
+
+css-ease@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/css-ease/-/css-ease-0.0.1.tgz#537679b67c9fc7c52968825b6fdd21f7492ca86c"
+  integrity sha1-U3Z5tnyfx8UpaIJbb90h90ksqGw=
+
+css-emitter-component@~0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/css-emitter-component/-/css-emitter-component-0.1.1.tgz#fb5e4c4dab3cd62c930acac837b6e34d87ab2a8e"
+  integrity sha1-+15MTas81iyTCsrIN7bjTYerKo4=
+  dependencies:
+    event-component "~0.1.0"
 
 css-loader@1.0.0:
   version "1.0.0"
@@ -3676,6 +3701,11 @@ etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
 
+event-component@~0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/event-component/-/event-component-0.1.0.tgz#80455579d134ab27e3bb80bb2869bf96a76e9e68"
+  integrity sha1-gEVVedE0qyfju4C7KGm/lqdunmg=
+
 eventemitter3@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
@@ -4446,6 +4476,18 @@ has-flag@^3.0.0:
 has-symbols@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/has-symbols/-/has-symbols-1.0.0.tgz#ba1a8f1af2a0fc39650f5c850367704122063b44"
+
+has-transitions@~0.3.0:
+  version "0.3.0"
+  resolved "https://registry.npmjs.org/has-transitions/-/has-transitions-0.3.0.tgz#066437c589613a8d7ba0aaa3cbd408eccb408f10"
+  integrity sha1-BmQ3xYlhOo17oKqjy9QI7MtAjxA=
+
+has-translate3d@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/has-translate3d/-/has-translate3d-0.0.3.tgz#ee0157ad5b4ca8a1a33514a9e7ef45415a132103"
+  integrity sha1-7gFXrVtMqKGjNRSp5+9FQVoTIQM=
+  dependencies:
+    transform-property "0.0.1"
 
 has-unicode@^2.0.0:
   version "2.0.1"
@@ -6340,6 +6382,17 @@ move-concurrently@^1.0.1:
     mkdirp "^0.5.1"
     rimraf "^2.5.4"
     run-queue "^1.0.3"
+
+move-js@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/move-js/-/move-js-0.5.0.tgz#19f42dee61fe6ae9252436c27796c122614c3d2c"
+  integrity sha1-GfQt7mH+auklJDbCd5bBImFMPSw=
+  dependencies:
+    after-transition "0.0.4"
+    component-emitter "^1.2.0"
+    component-query "0.0.3"
+    css-ease "0.0.1"
+    has-translate3d "0.0.3"
 
 ms@2.0.0:
   version "2.0.0"
@@ -9341,6 +9394,11 @@ tr46@^1.0.1:
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-1.0.1.tgz#a8b13fd6bfd2489519674ccde55ba3693b706d09"
   dependencies:
     punycode "^2.1.0"
+
+transform-property@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/transform-property/-/transform-property-0.0.1.tgz#4863662f9d5e5bb8f0c00648eff08beb14fd65f2"
+  integrity sha1-SGNmL51eW7jwwAZI7/CL6xT9ZfI=
 
 trim-right@^1.0.1:
   version "1.0.1"
