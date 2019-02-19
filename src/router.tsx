@@ -13,7 +13,6 @@ import { HashHistory } from './common/history';
 import Dashboard from './container/dashboard';
 import List from './container/list';
 import Detail from './container/detail';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const routes = [
 	{
