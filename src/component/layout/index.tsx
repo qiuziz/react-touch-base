@@ -12,6 +12,7 @@ interface Props {
 	History: any;
 	displayFlag: any;
 	currentPath: string;
+	path: string;
 }
 
 @(withRouter as any)
@@ -45,11 +46,13 @@ export default class Layout extends React.Component<Props, any> {
 	}
 
   render () {
+		const { path, displayFlag, children } = this.props;
+		const pathLevel = path.split('/').length;
     return (
-		<div className={`layout ${this.props.displayFlag ? 'slide-in-leave' : 'slide-in-leave slide-in-leave-active'} ${this.state.enter}`}>
+		<div className={`layout ${displayFlag ? (pathLevel <= 2 ? 'slide-in' : 'slide-in-leave') : 'slide-in-leave slide-in-leave-active'} ${this.state.enter}`}>
 					<header></header>
 					<main>
-						{this.props.children}
+						{children}
 					</main>
 			</div>
     )

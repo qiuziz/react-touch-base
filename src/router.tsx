@@ -54,7 +54,7 @@ const App = () => {
 										const { history, location } = props;
 										const History = HashHistory(history, location);
 										return (
-											<Layout {...props} displayFlag={displayFlag[path]}>
+											<Layout {...props} path={path} displayFlag={displayFlag[path]}>
 												<Component {...props} History={History}/>
 											</Layout>
 										)
