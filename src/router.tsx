@@ -3,7 +3,7 @@
  * @Github: <https://github.com/qiuziz>
  * @Date: 2018-10-30 13:19:42
  * @Last Modified by: qiuz
- * @Last Modified time: 2019-02-18 20:43:36
+ * @Last Modified time: 2019-02-20 11:37:43
  */
 
 import * as React from 'react';
@@ -13,6 +13,7 @@ import { HashHistory } from './common/history';
 import Dashboard from './container/dashboard';
 import List from './container/list';
 import Detail from './container/detail';
+import Nav from './component/nav';
 
 const routes = [
 	{
@@ -21,6 +22,7 @@ const routes = [
 		// exact: true,
 		Layout: Layout,
 		title: 'react-touch-base',
+		root: true
 	},
 	{
 		path: '/list',
@@ -44,7 +46,7 @@ const App = () => {
 	return (
 		<div>
 			{
-				routes.map(({ path, Layout, Component, exact, title, local, color, padding }: any, index) => {
+				routes.map(({ path, Layout, Component, exact, title, root }: any, index) => {
 					let currentPath = window.location.hash.split('#')[1].split('?')[0];
 					displayFlag[path] = currentPath === path;
 					return (
@@ -55,6 +57,7 @@ const App = () => {
 										const History = HashHistory(history, location);
 										return (
 											<Layout {...props} path={path} displayFlag={displayFlag[path]}>
+												<Nav {...props} title={title} left={!root} />
 												<Component {...props} History={History}/>
 											</Layout>
 										)

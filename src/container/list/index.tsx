@@ -3,7 +3,7 @@
  * @Github: <https://github.com/qiuziz>
  * @Date: 2019-02-18 13:38:20
  * @Last Modified by: qiuz
- * @Last Modified time: 2019-02-18 19:52:04
+ * @Last Modified time: 2019-02-20 10:50:03
  */
 
 import { ListView } from 'antd-mobile';
@@ -23,17 +23,20 @@ const data = [
   {
     img: 'https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png',
     title: 'Meet hotel',
-    des: '不是所有的兼职汪都需要风吹日晒',
+		des: '不是所有的兼职汪都需要风吹日晒',
+		price: '35'
   },
   {
     img: 'https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png',
     title: 'McDonald\'s invites you',
-    des: '不是所有的兼职汪都需要风吹日晒',
+		des: '不是所有的兼职汪都需要风吹日晒',
+		price: '35'
   },
   {
     img: 'https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png',
     title: 'Eat the week',
     des: '不是所有的兼职汪都需要风吹日晒',
+		price: '35'
   },
 ];
 const NUM_SECTIONS = 5;
@@ -98,7 +101,7 @@ export default function List(props: any) {
 		/>
 	);
 
-	const goDetail = () => {
+	const goDetail = (data: any) => {
 		props.History.push({pathname: '/list/detail'});
 	}
 	let index = data.length - 1;
@@ -108,7 +111,7 @@ export default function List(props: any) {
 		}
 		const obj = data[index--];
 		return (
-			<div key={rowID} style={{ padding: '0 15px' }} onClick={goDetail}>
+			<div key={rowID} style={{ padding: '0 15px' }} onClick={() => goDetail(obj)}>
 				<div
 					style={{
 						lineHeight: '50px',
@@ -121,7 +124,7 @@ export default function List(props: any) {
 					<img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="" />
 					<div style={{ lineHeight: 1 }}>
 						<div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
-						<div><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span>¥ {rowID}</div>
+						<div><span style={{ fontSize: '30px', color: '#FF6E27' }}>{obj.price}</span>¥ {rowID}</div>
 					</div>
 				</div>
 			</div>
