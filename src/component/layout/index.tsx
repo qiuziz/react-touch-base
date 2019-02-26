@@ -31,19 +31,11 @@ export default class Layout extends React.Component<Props, any> {
 	}
 
 	componentDidMount() {
-		// console.log(this.props.displayFlag)
-		// this.props.displayFlag
-		// ? Move(`.${this.props.currentPath}`).ease('in').x('-100%').end()
-		// : Move(`.${this.props.currentPath}`).ease('in').x(100).end()
 		setTimeout(() => {
 			this.setState ({enter: 'slide-in'});
-		},0)
+		}, 0)
 	}
 
-	componentWillUnmount() {
-		console.log(111)
-		this.setState ({enter: ''});
-	}
 
   render () {
 		const { path, displayFlag, children } = this.props;

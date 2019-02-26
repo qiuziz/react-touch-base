@@ -3,7 +3,7 @@
  * @Github: <https://github.com/qiuziz>
  * @Date: 2018-10-30 13:19:42
  * @Last Modified by: qiuz
- * @Last Modified time: 2019-02-20 11:37:43
+ * @Last Modified time: 2019-02-20 13:18:54
  */
 
 import * as React from 'react';
@@ -57,7 +57,7 @@ const App = () => {
 										const History = HashHistory(history, location);
 										return (
 											<Layout {...props} path={path} displayFlag={displayFlag[path]}>
-												<Nav {...props} title={title} left={!root} />
+												<Nav {...props} title={title} root={root} />
 												<Component {...props} History={History}/>
 											</Layout>
 										)
