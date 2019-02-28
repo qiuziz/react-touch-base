@@ -5,7 +5,7 @@
 
 import './index.less';
 
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 
 interface Props {
@@ -13,41 +13,25 @@ interface Props {
 	displayFlag: any;
 	currentPath: string;
 	path: string;
+	children: any;
 }
 
-@(withRouter as any)
-export default class Layout extends React.Component<Props, any> {
-	constructor(props: any) {
-		super(props);
-		this.state = {
-			bodyHeight: {height: '100%'},
-			enter: ''
-		}
-	}
-	
-
-	onLeftClick = () => {
-		this.props.History.go(-1);
-	}
-
-	componentDidMount() {
-		setTimeout(() => {
-			this.setState ({enter: 'slide-in'});
-		}, 0)
-	}
-
-
-  render () {
-		const { path, displayFlag, children } = this.props;
-		const pathLevel = path.split('/').length;
-    return (
-		<div className={`layout ${displayFlag ? (pathLevel <= 2 ? 'slide-in' : 'slide-in-leave') : 'slide-in-leave slide-in-leave-active'} ${this.state.enter}`}>
-					<header></header>
-					<main>
-						{children}
-					</main>
-			</div>
-    )
-  }
+function Layout(props: Props) {
+	const [enter, setEnter] = useState('');
+	const { path, displayFlag, children } = props;
+	const pathLevel = path.split('/').length;
+	useEffect(() => {
+		setEnter ('slide-in');
+	})
+	return (
+		<div className={`layout ${displayFlag ? (pathLevel <= 2 ? 'slide-in' : 'slide-in-leave') : 'slide-in-leave slide-in-leave-active'} ${enter}`}>
+				<header></header>
+				<main>
+					{children}
+				</main>
+		</div>
+  )
 }
 
+// @ts-ignore
+export default withRouter(Layout);
