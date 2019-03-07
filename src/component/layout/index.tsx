@@ -7,6 +7,7 @@ import './index.less';
 
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
+import Nav from '../nav';
 
 interface Props {
 	History: any;
@@ -14,6 +15,8 @@ interface Props {
 	currentPath: string;
 	path: string;
 	children: any;
+	root: boolean;
+	title: string;
 }
 
 function Layout(props: Props) {
@@ -25,7 +28,9 @@ function Layout(props: Props) {
 	})
 	return (
 		<div className={`layout ${displayFlag ? (pathLevel <= 2 ? 'slide-in' : 'slide-in-leave') : 'slide-in-leave slide-in-leave-active'} ${enter}`}>
-				<header></header>
+				<header>
+					<Nav {...props} />
+				</header>
 				<main>
 					{children}
 				</main>

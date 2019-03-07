@@ -13,7 +13,6 @@ import { HashHistory } from './common/history';
 import Dashboard from './container/dashboard';
 import List from './container/list';
 import Detail from './container/detail';
-import Nav from './component/nav';
 
 const routes = [
 	{
@@ -44,7 +43,7 @@ const displayFlag = {};
 
 const App = () => {
 	return (
-		<div>
+		<div className="aub-content">
 			{
 				routes.map(({ path, Layout, Component, exact, title, root }: any, index) => {
 					let currentPath = window.location.hash.split('#')[1].split('?')[0];
@@ -60,8 +59,7 @@ const App = () => {
 										const { history, location } = props;
 										const History = HashHistory(history, location);
 										return (
-											<Layout {...props} path={pathDefault} displayFlag={displayFlag[pathDefault]}>
-												<Nav {...props} title={title} root={root} />
+											<Layout {...props} root={root} title={title} path={pathDefault} displayFlag={displayFlag[pathDefault]}>
 												<Component {...props} History={History}/>
 											</Layout>
 										)
