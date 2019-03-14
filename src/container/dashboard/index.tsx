@@ -3,7 +3,7 @@
  * @Github: <https://github.com/qiuziz>
  * @Date: 2019-02-13 09:23:11
  * @Last Modified by: qiuz
- * @Last Modified time: 2019-02-18 19:46:28
+ * @Last Modified time: 2019-03-14 17:07:22
  */
 
 import React, { useState, useEffect, useMemo, useLayoutEffect } from "react";
@@ -24,8 +24,8 @@ export default function Dashboard(props) {
 		}, 1000);
 		return () => clearInterval(timer);
 	}, []);
-	const goList = () => {
-		props.History.push({pathname: '/list'});
+	const go = (path: string) => () => {
+		props.History.push({pathname: path});
 	}
 	return (
 		<div className="dashboard">
@@ -42,42 +42,9 @@ export default function Dashboard(props) {
 			</div>
 
 			<div className="content">
-				<Button className="btn" onClick={goList}>List</Button>
+				<Button className="btn" onClick={go('/list')}>List</Button>
+				<Button className="btn" onClick={go('/city-select')}>CitySelect</Button>
 			</div>
 		</div>
 	)
 }
-
-// export default class extends React.Component<any, any> {
-// 	timer: any;
-// 	constructor(props: any) {
-// 		super(props);
-// 		this.state = {
-// 			time: new Date(),
-// 			countTime: {
-// 				minutes: 30,
-// 				seconds: 0
-// 			}
-// 		}
-// 	}
-
-// 	componentDidMount() {
-// 		this.timer = setInterval(() => this.setState({time: new Date()}), 1000);
-// 	}
-
-// 	componentWillUnmount() {
-// 		clearInterval(this.timer);
-// 	}
-
-//   public render() {
-// 		const { time, countTime } = this.state;
-//     return (
-//       <div className="dashboard">
-//         <p className="dashboard-intro">
-// 					{dateFormat(time)}
-//         </p>
-// 				<CountDown  format={{ minutes: ':', seconds: '' }} minutes={countTime.minutes} seconds={countTime.seconds} />
-//       </div>
-//     );
-//   }
-// }

@@ -95,6 +95,7 @@
     "@types/webpack": "^4.4.24",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "react-sticky": "^6.0.3",
     "tslint-react-hooks": "^1.1.0",
     "typescript": "^3.2.4"
   },
